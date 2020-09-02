@@ -1,0 +1,180 @@
+/* Main styles============== */
+
+html {
+    font-size: 15px;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.cards {
+  background-color: #9393c2;
+  min-height: 100vh;
+  padding: 10px 0;
+}
+
+.container {
+  max-width: 900px;
+  width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.cards__header {
+  text-align: center;
+}
+
+.title {
+  font-size: 50px;
+}
+
+.restart {
+  display: inline-block;
+  font-size: 22px;
+  font-weight: 700;
+  padding: .3em 1.2em;
+  border-radius: 10px;
+  border: none;
+  background-color: #32004752;
+  margin-top: 20px;
+  cursor: pointer;
+  text-transform: uppercase;
+  color: #fff;
+  transition: .2s linear;
+}
+
+.restart:hover {
+  opacity: .8;
+}
+
+.restart:focus {
+  outline: none;
+}
+
+.cards__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 50px;
+}
+
+.cards__item {
+  width: calc(25% - 20px);
+  margin: 10px;
+  height: 250px;
+  position: relative;
+  border-radius: 20px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.done {
+  display: block;
+  position: relative;
+  top: 20px;
+  left: 20px;
+  max-width: 50px;
+  height: 50px;
+}
+
+.cards__item__icon {
+  max-width: 50px;
+  height: auto;
+}
+
+.cards__item__front,
+.cards__item__back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+  backface-visibility: hidden;
+  transition: .5s linear;
+}
+
+
+.cards__item__back {
+  background-color: #088f8f;
+}
+
+.cards__item__front {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #005474;
+  transform: rotateY(180deg);
+}
+
+.cards__item.open .cards__item__front,
+.cards__item.guessed .cards__item__front {
+  transform: rotateY(360deg);
+  cursor: default;
+  box-shadow: -5px 8px 13px -4px rgba(0,0,0,0.75);
+}
+
+.cards__item.open .cards__item__back,
+.cards__item.guessed .cards__item__back {
+  transform: rotateY(180deg);
+  cursor: default;
+}
+
+@media (max-width: 1230px) {
+  .cards__item {
+    height: 200px;
+  }
+  .container {
+    max-width: 700px;
+  }
+}
+
+@media (max-width: 770px) {
+  .cards__item {
+    height: 150px;
+  }
+  .container {
+    max-width: 600px;
+  }
+  .cards__item__icon {
+    max-width: 40px;
+    height: auto;
+  }
+  .done {
+    max-width: 40px;
+    top: 10px;
+    left: 10px;
+  }
+}
+
+
+@media (max-width: 570px) {
+  .container {
+    max-width: 400px;
+  }
+  .cards__item {
+    width: calc(33% - 10px);
+    margin: 5px;
+    height: 140px;
+  }
+  .done {
+    max-width: 30px;
+    top: 5px;
+    left: 10px;
+  }
+}
+
+
